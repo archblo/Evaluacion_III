@@ -1,0 +1,20 @@
+{
+  "name": "evaluacion_iii",
+  "version": "0.0.1",
+  "description": "Evaluacion_III",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "yo",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
