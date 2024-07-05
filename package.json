@@ -1,8 +1,11 @@
 {
   "name": "evaluacion_iii",
   "version": "0.0.1",
-  "description": "Evaluacion_III",
+  "description": "evaluacion numero 3 ",
   "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,11 +13,10 @@
     "git",
     "javascript",
     "html",
-    "css"
+    "css",
+    "bootstrap"
   ],
-  "author": "yo",
+  "author": "io",
   "license": "MIT",
-  "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+  "devDependencies": {}
 }

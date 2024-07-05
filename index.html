@@ -1,58 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Estimación de Calorías Quemadas</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center">Estimación de Calorías Quemadas</h1>
+<body class="container">
+
+    <div class="row">
+        <div class="col"><h2 class="my-2">Estimación de Calorías Quemadas</h2></div>
+        <div class="col-12">
+            <h5 class="alert-heading">Instrucciones</h5>
+            <div class="alert alert-secondary" role="alert">
+                <p>Realice el cálculo de calorías quemadas en ejercicio a través del formulario HTML.</p>
+                <p>La fórmula para el cálculo corresponde a: <pre>Calorías = MET * 3.5 * Peso (kg) * (Tiempo en minutos / 200)</pre></p>
+                <hr />
+                <p>Ingrese los datos solicitados y seleccione la actividad física:</p>
+                <p>
+                    <ul>
+                        <li>Caminar = 3.5 MET</li>
+                        <li>Correr = 8.0 MET</li>
+                        <li>Ciclismo = 6.0 MET</li>
+                        <li>Natación = 9.8 MET</li>
+                        <li>Baile = 7.0 MET</li>
+                        <li>Yoga = 3.0 MET</li>
+                    </ul>
+                </p>
+                <hr />
+                <p>Valide que: el peso esté entre 1 y 120 kg, y el tiempo entre 5 y 150 minutos</p>
+                <p>Realice los cálculos inhabilitando el evento por defecto del formulario</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <form id="calorieForm">
-            <div class="mb-3">
-                <label for="weight" class="form-label">Peso (kg)</label>
-                <input type="number" class="form-control" id="weight" placeholder="Ingrese su peso en kg">
-                <div class="alert alert-danger mt-2 d-none" id="weightAlert">El peso debe estar entre 1 y 120 kg.</div>
-            </div>
-            <div class="mb-3">
-                <label for="time" class="form-label">Tiempo (minutos)</label>
-                <input type="number" class="form-control" id="time" placeholder="Ingrese el tiempo en minutos">
-                <div class="alert alert-danger mt-2 d-none" id="timeAlert">El tiempo debe estar entre 5 y 150 minutos.</div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Actividad</label>
-                <div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="walking" value="3.5" checked>
-                        <label class="form-check-label" for="walking">Caminar</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="running" value="8.0">
-                        <label class="form-check-label" for="running">Correr</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="cycling" value="6.0">
-                        <label class="form-check-label" for="cycling">Ciclismo</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="swimming" value="9.8">
-                        <label class="form-check-label" for="swimming">Natación</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="dancing" value="7.0">
-                        <label class="form-check-label" for="dancing">Baile</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="activity" id="yoga" value="3.0">
-                        <label class="form-check-label" for="yoga">Yoga</label>
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="weight" class="form-label">Peso (kg)</label>
+                    <input type="number" class="form-control" id="weight" placeholder="Ingrese su peso en kg" required>
+                    <div class="alert alert-danger mt-2 d-none" id="weightAlert">El peso debe estar entre 1 y 120 kg.</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary m-3">Calcular Calorías</button>
+
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="time" class="form-label">Tiempo (minutos)</label>
+                    <input type="number" class="form-control" id="time" placeholder="Ingrese el tiempo en minutos" required>
+                    <div class="alert alert-danger mt-2 d-none" id="timeAlert">El tiempo debe estar entre 5 y 150 minutos.</div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="mb-3">
+                    <label class="form-label">Actividad</label>
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="walking" value="3.5" checked>
+                            <label class="form-check-label" for="walking">Caminar</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="running" value="8.0">
+                            <label class="form-check-label" for="running">Correr</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="cycling" value="6.0">
+                            <label class="form-check-label" for="cycling">Ciclismo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="swimming" value="9.8">
+                            <label class="form-check-label" for="swimming">Natación</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="dancing" value="7.0">
+                            <label class="form-check-label" for="dancing">Baile</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="activity" id="yoga" value="3.0">
+                            <label class="form-check-label" for="yoga">Yoga</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <button class="btn btn-primary" type="submit">Calcular Calorías</button>
+            </div>
         </form>
-        <div class="alert alert-info mt-3 d-none" id="resultAlert"></div>
     </div>
-    <script src="assets/js/estimacionCalorias.js"></script>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-primary">Resultado</h3>
+        </div>
+        <div class="col-12">
+            <div class="alert alert-info d-none" id="resultAlert">Esperando el cálculo ...</div>
+        </div>
+    </div>
+
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/estimacionCalorias.js"></script>
 </body>
 </html>
