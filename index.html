@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimación de Calorías Quemadas</title>
+    <link href="assets/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Estimación de Calorías Quemadas</h1>
+        <form id="calorieForm">
+            <div class="mb-3">
+                <label for="weight" class="form-label">Peso (kg)</label>
+                <input type="number" class="form-control" id="weight" placeholder="Ingrese su peso en kg">
+                <div class="alert alert-danger mt-2 d-none" id="weightAlert">El peso debe estar entre 1 y 120 kg.</div>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Tiempo (minutos)</label>
+                <input type="number" class="form-control" id="time" placeholder="Ingrese el tiempo en minutos">
+                <div class="alert alert-danger mt-2 d-none" id="timeAlert">El tiempo debe estar entre 5 y 150 minutos.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Actividad</label>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="activity" id="walking" value="3.5" checked>
+                        <label class="form-check-label" for="walking">Caminar</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="activity" id="running" value="8.0">
+                        <label class="form-check-label" for="running">Correr</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular Calorías</button>
+        </form>
+        <div class="alert alert-info mt-3 d-none" id="resultAlert"></div>
+    </div>
+    <script src="assets/js/estimacionCalorias.js"></script>
+</body>
+</html>
